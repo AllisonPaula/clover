@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clover Bank</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="bg-gray-100">
     <header class="bg-green-800 text-white shadow-md relative z-50">
         <div class="container mx-auto flex items-center justify-between p-4">
@@ -41,47 +39,36 @@
         </div>
     </header>
 
-
- <!-- Sección de Contacto -->
- <section class="bg-gray-100 py-10 px-8 flex flex-col md:flex-row justify-between items-start">
-    <nav class="w-1/4 text-green-900 font-semibold">
-        <ul class="space-y-4">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="sucursales.html">Sucursales</a></li>
-            <li><a href="nosotros.html">Sobre Nosotros</a></li>
-        </ul>
-    </nav>
-    <div class="w-1/2">
-        <h2 class="text-3xl font-bold text-green-900 mb-6">Contáctenos</h2>
-        <form class="bg-white shadow-lg rounded-lg p-6">
-            <input type="email" placeholder="Tu email" class="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:border-green-700">
-            <textarea placeholder="Tu mensaje" class="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:border-green-700"></textarea>
-            <button type="submit" class="bg-green-700 text-white px-6 py-3 rounded-lg w-full hover:bg-green-800">Enviar</button>
-        </form>
-        <div class="mt-6 text-green-900 text-lg">
-            <p>📞 809 726 1000</p>
-            <p>📍 Encuéntranos</p>
+    <div class="relative w-full max-w-6xl mx-auto mt-6 overflow-hidden rounded-lg shadow-lg">
+        <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+            <img src="assets/image/cusi.png" class="w-full">
+            <img src="assets/image/d.png" class="w-full hidden">
+            <img src="assets/image/g.png" class="w-full hidden">
         </div>
+        <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1 sm:p-2 rounded-full">❮</button>
+        <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1 sm:p-2 rounded-full">❯</button>
     </div>
-    <div class="w-1/4 flex flex-col items-center space-y-4">
-        <div class="flex space-x-4 text-xl">
-            <a href="#" class="text-blue-600">🔵</a>
-            <a href="#" class="text-blue-400">🐦</a>
-            <a href="#" class="text-red-600">▶️</a>
-            <a href="#" class="text-blue-700">🔗</a>
-        </div>
-        <div class="flex space-x-4">
-            <a href="#" class="bg-black text-white px-4 py-2 rounded-lg">App Store</a>
-            <a href="#" class="bg-black text-white px-4 py-2 rounded-lg">Google Play</a>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-green-900 text-white text-center py-4 mt-10">
-    © 2025 Clover Bank. Todos los Derechos Reservados.
-</footer>
+    
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+        
+        let index = 0;
+        function showSlide(n) {
+            let slides = document.querySelectorAll("#carousel img");
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("hidden", i !== n);
+            });
+        }
+        function prevSlide() {
+            index = (index > 0) ? index - 1 : 2;
+            showSlide(index);
+        }
+        function nextSlide() {
+            index = (index < 2) ? index + 1 : 0;
+            showSlide(index);
+        }
+    </script>
 </body>
 </html>
