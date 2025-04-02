@@ -37,7 +37,7 @@
         <label for="passwordLogin" class="block text-sm text-gray-700">Contraseña</label>
         <input type="password" id="passwordLogin" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Tu contraseña">
       </div>
-      <button type="submit" onclick="window.location.href='home.html'" class="w-full py-3 bg-[#037B0B] text-white font-semibold rounded-lg hover:bg-[#005B05] transition">Iniciar Sesión</button>
+      <button type="submit" id="loginBtn" class="w-full py-3 bg-[#037B0B] text-white font-semibold rounded-lg hover:bg-[#005B05] transition">Iniciar Sesión</button>
     </form>
 
     <!-- Formulario de Sign Up -->
@@ -54,7 +54,7 @@
         <label for="confirmPassword" class="block text-sm text-gray-700">Confirmar Contraseña</label>
         <input type="password" id="confirmPassword" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Confirmar contraseña">
       </div>
-      <button type="submit" class="w-full py-3 bg-[#037B0B] text-white font-semibold rounded-lg hover:bg-[#005B05] transition">Registrarse</button>
+      <button type="submit" id="signupBtn" class="w-full py-3 bg-[#037B0B] text-white font-semibold rounded-lg hover:bg-[#005B05] transition">Registrarse</button>
     </form>
   </div>
 
@@ -74,6 +74,15 @@
       signupForm.classList.remove('hidden');
       loginForm.classList.add('hidden');
     });
+
+    document.getElementById("loginBtn").addEventListener("click", function() {
+    window.location.href = "home.html";
+  });
+    document.getElementById("signupBtn").addEventListener("click", function() {
+    window.location.href = "#";
+  });
+  
+</script>
   </script>
 
 </body>
