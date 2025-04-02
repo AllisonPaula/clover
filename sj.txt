@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="p-6 text-center">
+        <button class="absolute left-4 top-4 text-gray-600 text-lg">← Atrás</button>
+        <img src="assets/image/logoin.png" alt="Logo" class="mx-auto mt-8 w-20 mb-6">
+        <h2 class="text-lg font-medium text-gray-800">Inicio de sesión</h2>
+        
+        <div class="mt-6 text-left">
+            <label class="text-gray-600 text-sm">Cédula</label>
+            <input type="text" class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800" placeholder="Ingrese su cédula">
+        </div>
+        
+        <div class="mt-4 text-left">
+            <label class="text-gray-600 text-sm">Clave de acceso</label>
+            <div class="relative">
+                <input type="password" class="w-full mt-2 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 pr-12" placeholder="Ingrese su clave">
+                <button class="absolute inset-y-0 right-4 flex items-center text-gray-500 hover:text-gray-700">👁</button>
+            </div>
+        </div>
+        
+        <a href="#" class="block mt-4 text-sm text-blue-700 font-semibold hover:underline">Recuperar contraseña</a>
+
+        <p class="mt-6 text-sm text-blue-600">¿No tienes una cuenta? <a href="#" class="text-blue-700 font-semibold hover:underline">Regístrate</a></p>
+
+        <button class="w-full mt-6 p-2 bg-green-500 text-white font-semibold rounded-full transition duration-300 hover:bg-green-600 disabled:bg-green-300" disabled>Iniciar sesión</button>
+        
+    </div>
+</body>
+</html>
