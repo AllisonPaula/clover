@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clover Bank - Historial de Transacciones</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center h-screen p-4">
+  
+  <!-- Header -->
+  <div class="w-full max-w-md bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+    <button onclick="history.back()" class="text-gray-600"><img src="assets/image/back.png" alt="Volver" class="w-6"></button>
+    <h2 class="text-lg font-semibold text-gray-800">Historial de Transacciones</h2>
+    <button class="text-gray-600"><img src="assets/image/filterf.png" alt="Filtrar" class="w-6"></button>
+  </div>
+
+  <!-- Lista de transacciones -->
+  <div class="w-full max-w-md bg-white p-6 mt-4 rounded-lg shadow-md">
+    <h3 class="text-gray-800 font-semibold text-lg mb-4">Transacciones recientes</h3>
+    
+    <div class="space-y-4">
+      <div class="flex justify-between items-center border-b pb-2">
+        <div>
+          <p class="text-gray-700 font-medium">Registro</p>
+          <p class="text-gray-500 text-sm">01/04/2025</p>
+        </div>
+        <p class="text-green-500 font-semibold">+ $100.00</p>
+      </div>
+      
+      <div class="flex justify-between items-center border-b pb-2">
+        <div>
+          <p class="text-gray-700 font-medium">Ganancia</p>
+          <p class="text-gray-500 text-sm">29/03/2025</p>
+        </div>
+        <p class="text-green-500 font-semibold">+ $200.00</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const transacciones = JSON.parse(localStorage.getItem('transacciones')) || [];
+      const transaccionesContainer = document.querySelector('.space-y-4');
+  
+      if (transacciones.length === 0) {
+        transaccionesContainer.innerHTML = '<p class="text-gray-500 text-center">No hay transacciones recientes.</p>';
+        return;
+      }
+  
+      transacciones.forEach(transaccion => {
+        const transaccionHTML = `
+          <div class="flex justify-between items-center border-b pb-2">
+            <div>
+              <p class="text-gray-700 font-medium">${transaccion.mensaje}</p>
+              <p class="text-gray-500 text-sm">${transaccion.fecha}</p>
+            </div>
+            <p class="text-red-500 font-semibold">${transaccion.monto}</p>
+          </div>
+        `;
+        transaccionesContainer.innerHTML += transaccionHTML;
+      });
+    });
+  </script>
+
+</body>
+</html>

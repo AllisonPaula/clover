@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clover Bank - Más Opciones</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center h-screen p-4">
+  
+  <!-- Header -->
+  <div class="w-full max-w-md bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+    <button onclick="history.back()" class="text-gray-600"><img src="assets/image/back.png" alt="Volver" class="w-6"></button>
+    <h2 class="text-lg font-semibold text-gray-800">Más Opciones</h2>
+    <button id="settBtn" class="text-gray-600"><img src="assets/image/settings.png" alt="Configuración" class="w-6"></button>
+  </div>
+
+  <!-- Lista de opciones -->
+  <div class="w-full max-w-md bg-white p-6 mt-4 rounded-lg shadow-md">
+    <h3 class="text-gray-800 font-semibold text-lg mb-4">Opciones adicionales</h3>
+    
+    <div class="space-y-4">
+      <button class="w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition">Configuración</button>
+      <button class="w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition">Seguridad</button>
+      <button class="w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition">Soporte</button>
+      <button id="closeBtn" class="w-full py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition">Cerrar Sesión</button>
+    </div>
+  </div>
+<script>
+  document.getElementById("settBtn").addEventListener("click", function () {
+      window.location.href = "settings.html";
+    });
+  document.getElementById("closeBtn").addEventListener("click", function () {
+      window.location.href = "index.html";
+    });
+</script>
+</body>
+</html>

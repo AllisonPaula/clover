@@ -1,41 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clover Bank - Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 flex flex-col items-center h-screen p-4">
-  
+
   <!-- Header -->
   <div class="w-full max-w-md bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
-    <img src="assets\image\profile.png" alt="Usuario" class="w-10 h-10 rounded-full">
-    <h2 class="text-lg font-semibold text-gray-800">Clover Bank</h2>
-    <button class="text-gray-600"><img src="assets/image/settings.png" alt="Configuración" class="w-6"></button>
+    <button id="perfilBtn"><img src="assets\image\profile.png" alt="Usuario" class="w-10 h-10 rounded-full"></button>
+    <h2 class="text-lg font-semibold text-gray-800">CLOVER BANK</h2>
+    <button id="settBtn" class="text-gray-600"><img src="assets/image/settings.png" alt="Configuración"
+        class="w-6"></button>
   </div>
 
   <!-- Balance -->
   <div class="w-full max-w-md bg-[#037B0B] text-white p-6 mt-4 rounded-lg shadow-md">
     <p class="text-sm">Saldo Disponible</p>
-    <h2 class="text-2xl font-bold">$5,000.00</h2>
+    <h2 class="text-2xl font-bold saldo-disponible">$50,000.00</h2>
   </div>
 
   <!-- Opciones -->
   <div class="w-full max-w-md grid grid-cols-2 gap-4 mt-6">
-    <button class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold">Transferencias</button>
-    <button class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold">Inversiones</button>
-    <button class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold">Historial</button>
-    <button class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold">Más</button>
+    <button id="trasferBtn"
+      class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold hover:bg-[#fdb128] hover:text-black">Transferencias</button>
+    <button id="inverBtn"
+      class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold hover:bg-[#fdb128] hover:text-black">Inversiones</button>
+    <button id="histBtn"
+      class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold hover:bg-[#fdb128] hover:text-black">Historial</button>
+    <button id="masBtn"
+      class="bg-white p-4 rounded-lg shadow-md text-center text-[#037B0B] font-semibold hover:bg-[#fdb128] hover:text-black">Más</button>
   </div>
 
-  <!-- Navegación Inferior -->
-  <div class="w-full max-w-md flex justify-around bg-white p-4 mt-6 rounded-lg shadow-md">
-    <button class="text-gray-600"><img src="assets/image/home.png" alt="Inicio" class="w-6"></button>
-    <button class="text-gray-600"><img src="assets/image/graphics.png" alt="Gráficos" class="w-6"></button>
-    <button class="text-gray-600"><img src="assets/image/wallet.png" alt="Cartera" class="w-6"></button>
-    <button class="text-gray-600"><img src="assets/image/lock.png" alt="Perfil" class="w-6"></button>
-  </div>
+  <!-- Script para manejar la navegación -->
+  <script>
+
+    document.getElementById("trasferBtn").addEventListener("click", function () {
+      window.location.href = "transacciones.html";
+    });
+
+    document.getElementById("inverBtn").addEventListener("click", function () {
+      window.location.href = "inversiones.html";
+    });
+
+    document.getElementById("histBtn").addEventListener("click", function () {
+      window.location.href = "historial.html";
+    });
+
+    document.getElementById("masBtn").addEventListener("click", function () {
+      window.location.href = "mas.html";
+    });
+
+    document.getElementById("settBtn").addEventListener("click", function () {
+      window.location.href = "settings.html";
+    });
+    document.getElementById("perfilBtn").addEventListener("click", function () {
+      window.location.href = "perfil.html";
+    });
+
+    // Inicializar saldo disponible si no existe en localStorage
+  if (!localStorage.getItem('saldoDisponible')) {
+    localStorage.setItem('saldoDisponible', '50000'); // Saldo inicial
+  }
+
+  // Mostrar el saldo disponible en la página
+  document.addEventListener('DOMContentLoaded', () => {
+    const saldoDisponible = parseFloat(localStorage.getItem('saldoDisponible'));
+    document.querySelector('.saldo-disponible').textContent = `$${saldoDisponible.toFixed(2)}`;
+  });
+
+  </script>
 
 </body>
+
 </html>
